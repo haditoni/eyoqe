@@ -1,2 +1,286 @@
-
 <!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بانک اطلاعات کسب و کار ایران</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f3f5f7;
+      color: #222;
+    }
+
+    .top {
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 15px;
+    }
+
+    .header {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .iran {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .flag {
+      width: 55px;
+      height: 36px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+    }
+
+    .green {
+      height: 12px;
+      background: #239f40;
+    }
+
+    .white {
+      height: 12px;
+      background: white;
+      position: relative;
+    }
+
+    .red {
+      height: 12px;
+      background: #da0000;
+    }
+
+    .portal {
+      color: #1769aa;
+      font-weight: bold;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .portal small {
+      display: block;
+      color: #777;
+      font-weight: normal;
+    }
+
+    .title {
+      background: #ffffff;
+      text-align: center;
+      padding: 25px 15px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 25px;
+      color: #164f7a;
+    }
+
+    .title p {
+      margin: 10px 0 0;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .search {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+
+    .search h2 {
+      margin-top: 0;
+      color: #164f7a;
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      direction: rtl;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: #1769aa;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #164f7a;
+    }
+
+    .info {
+      line-height: 2;
+      color: #555;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        align-items: flex-start;
+      }
+
+      .title h1 {
+        font-size: 20px;
+      }
+
+      .portal {
+        font-size: 12px;
+      }
+
+      .flag {
+        width: 45px;
+        height: 30px;
+      }
+
+      .green,
+      .white,
+      .red {
+        height: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top">
+    <div class="header">
+
+      <div class="iran">
+        <div class="flag">
+          <div class="green"></div>
+          <div class="white"></div>
+          <div class="red"></div>
+        </div>
+        <span>ایران</span>
+      </div>
+
+      <div class="portal">
+        درگاه ملی مجوزها
+        <small>سامانه اطلاعات کسب‌وکار</small>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="title">
+    <h1>بانک اطلاعات کسب و کار ایران</h1>
+    <p>سامانه جستجو و مشاهده اطلاعات کسب‌وکارها</p>
+  </div>
+
+  <div class="container">
+
+    <div class="search">
+      <h2>جستجوی کسب و کار</h2>
+
+      <input
+        type="text"
+        id="searchBox"
+        placeholder="نام کسب و کار را وارد کنید"
+      >
+
+      <button onclick="searchBusiness()">
+        جستجو
+      </button>
+    </div>
+
+    <div class="card" id="result">
+      <h3>نمونه کسب و کار</h3>
+
+      <div class="info">
+        <b>نام کسب و کار:</b>
+        فروشگاه نمونه ایرانی
+        <br>
+
+        <b>وضعیت:</b>
+        فعال
+        <br>
+
+        <b>استان:</b>
+        آذربایجان شرقی
+        <br>
+
+        <b>شهر:</b>
+        تبریز
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    بانک اطلاعات کسب و کار ایران
+    <br>
+    نسخه آزمایشی
+  </div>
+
+  <script>
+    function searchBusiness() {
+      const text = document.getElementById("searchBox").value.trim();
+
+      if (text === "") {
+        alert("لطفاً نام کسب و کار را وارد کنید.");
+        return;
+      }
+
+      document.getElementById("result").innerHTML = `
+        <h3>نتیجه جستجو</h3>
+        <div class="info">
+          <b>عبارت جستجو شده:</b>
+          ${text}
+          <br><br>
+          اطلاعات این کسب و کار در نسخه آزمایشی نمایش داده خواهد شد.
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
